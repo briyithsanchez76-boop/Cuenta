@@ -1,0 +1,32 @@
+package co.edu.uniquindio.poo.app.model;
+
+public class CuentaCorriente extends Cuenta{
+    private float sobregiroMaximo=0;
+    
+
+    public CuentaCorriente(float saldo, float tasaAnual, float sobregiroMaximo) {
+        super(saldo, tasaAnual);
+        this.sobregiroMaximo = sobregiroMaximo;
+    }
+
+    @Override
+    public void retirar(float valor) {
+        if (valor>0){
+            if (valor<=(getSaldo()+sobregiroMaximo)){
+                super.retirar(valor);
+            }else{
+                System.out.println("No hay saldo suficiente");
+            }
+        }else{
+            System.out.println("El valor a retirar debe ser positivo");
+        }
+    }
+    public float getSobregiroMaximo() {
+        return sobregiroMaximo;
+    }
+
+    public void setSobregiroMaximo(float sobregiroMaximo) {
+        this.sobregiroMaximo = sobregiroMaximo;
+    }
+
+}
