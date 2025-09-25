@@ -2,18 +2,25 @@ package co.edu.uniquindio.poo.app.model;
 
 public class CuentaCorriente extends Cuenta{
     private float sobregiroMaximo=0;
+    private float sobregiroInicial;
     
 
-    public CuentaCorriente(float saldo, float tasaAnual, float sobregiroMaximo) {
+    public CuentaCorriente(float saldo, float tasaAnual, float sobregiroMaximo, float sobregiroInicial) {
         super(saldo, tasaAnual);
         this.sobregiroMaximo = sobregiroMaximo;
+        this.sobregiroInicial=sobregiroInicial;
     }
 
     @Override
     public void retirar(float valor) {
         if (valor>0){
-            if (valor<=(getSaldo()+sobregiroMaximo)){
-                super.retirar(valor);
+            if (valor<=saldo){
+                saldo=saldo-valor;
+                numeroRetiros++;
+            }else if (valor<=(saldo+sobregiroMaximo)){
+                sobregiroMaximo=sobregiroMaximo-(valor-saldo);
+                saldo=0;
+                numeroRetiros++;
             }else{
                 System.out.println("No hay saldo suficiente");
             }
@@ -23,15 +30,17 @@ public class CuentaCorriente extends Cuenta{
     }
     public void consignarSobregiro(float valor){
         if (valor>0){
-            if (valor<=sobregiroMaximo){
-                sobregiroMaximo=sobregiroMaximo-valor;
-                super.consignar(valor);
+            if (sobregiroMaximo<sobregiroInicial){
+                if ((valor+sobregiroMaximo)<=sobregiroInicial){
+                    sobregiroMaximo=sobregiroMaximo+valor;
+                    System.out.println("Consignacion de sobregiro exitosa");
             }else{
-                System.out.println("El valor a consignar supera el sobregiro maximo");
-            }
+                System.out.println("No hay sobregiro por consignar");
+            } 
         }else{
             System.out.println("El valor a consignar debe ser positivo");
         }
+    }
     }
     public void extractoMensual() {
         super.extractoMensual();

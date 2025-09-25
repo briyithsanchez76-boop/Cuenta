@@ -12,7 +12,7 @@ public class App {
         ahorro.retirar(10000f);
         ahorro.extractoMensual();
 
-        CuentaCorriente corriente= new CuentaCorriente(50000f, 5f,20000f);
+        CuentaCorriente corriente= new CuentaCorriente(50000f, 5f,20000f,20000f);
         corriente.consignar(20000f);
         corriente.retirar(100000f);
         corriente.extractoMensual();
