@@ -1,4 +1,6 @@
 package co.edu.uniquindio.poo.app.app;
+import javax.swing.JOptionPane;
+
 import co.edu.uniquindio.poo.app.model.CuentaAhorro;
 import co.edu.uniquindio.poo.app.model.CuentaCorriente;
 
@@ -14,6 +16,9 @@ public class App {
         corriente.consignar(20000f);
         corriente.retirar(100000f);
         corriente.extractoMensual();
+
+        JOptionPane.showMessageDialog(null, ahorro);
+        JOptionPane.showMessageDialog(null, corriente);
     }
      
 }
