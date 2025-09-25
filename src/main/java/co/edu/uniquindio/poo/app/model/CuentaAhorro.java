@@ -47,5 +47,13 @@ public class CuentaAhorro extends Cuenta{
     public void setActiva(boolean bandera) {
         this.bandera = bandera;
     }
-    
+    @Override
+public String toString() {
+    return "Cuenta de Ahorro\n" +
+           "Saldo:" + getSaldo() + "\n" +
+           "Tasa Anual: " + getTasaAnual() + "%\n" +
+           "Número de Consignaciones: " + getNumeroConsignaciones() + "\n" +
+           "Número de Retiros: " + getNumeroRetiros() + "\n";
+}
+ 
 }

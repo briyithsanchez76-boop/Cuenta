@@ -28,5 +28,14 @@ public class CuentaCorriente extends Cuenta{
     public void setSobregiroMaximo(float sobregiroMaximo) {
         this.sobregiroMaximo = sobregiroMaximo;
     }
+    @Override
+public String toString() {
+    return "Cuenta Corriente\n" +
+           "Saldo: " + getSaldo() + "\n" +
+           "Tasa Anual: " + getTasaAnual() + "%\n" +
+           "Número de Consignaciones: " + getNumeroConsignaciones() + "\n" +
+           "Número de Retiros: " + getNumeroRetiros() + "\n" +
+           "Sobregiro Máximo: " + getSobregiroMaximo();
+}
 
 }
