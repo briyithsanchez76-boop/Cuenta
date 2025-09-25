@@ -5,11 +5,7 @@ public class CuentaAhorro extends Cuenta{
 
     public CuentaAhorro(float saldo, float tasaAnual) {
         super(saldo, tasaAnual);
-        if (saldo<10000){
-            bandera=false;
-        }else{
-            bandera=true;
-        }
+       this.bandera = saldo >= 10000;
     }
 
     @Override
@@ -32,13 +28,16 @@ public class CuentaAhorro extends Cuenta{
 
     @Override
     public void extractoMensual() {
-        super.extractoMensual();
-        if (getSaldo()<10000){
-            bandera=false;
-        }else{
-            bandera=true;
+        if(numeroRetiros>4){
+            comisionMensual=(numeroRetiros-4)*1000;
         }
+        super.extractoMensual();
+        if (saldo<10000){
+            bandera=false;  
+        }else{
+            bandera=true;   
     }
+}
 
     public boolean isActiva() {
         return bandera;

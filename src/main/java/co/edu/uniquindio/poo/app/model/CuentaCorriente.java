@@ -21,6 +21,21 @@ public class CuentaCorriente extends Cuenta{
             System.out.println("El valor a retirar debe ser positivo");
         }
     }
+    public void consignarSobregiro(float valor){
+        if (valor>0){
+            if (valor<=sobregiroMaximo){
+                sobregiroMaximo=sobregiroMaximo-valor;
+                super.consignar(valor);
+            }else{
+                System.out.println("El valor a consignar supera el sobregiro maximo");
+            }
+        }else{
+            System.out.println("El valor a consignar debe ser positivo");
+        }
+    }
+    public void extractoMensual() {
+        super.extractoMensual();
+    }
     public float getSobregiroMaximo() {
         return sobregiroMaximo;
     }

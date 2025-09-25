@@ -1,11 +1,11 @@
 package co.edu.uniquindio.poo.app.model;
 
 public abstract class Cuenta {
-    private  float saldo;
-    private int numeroConsignaciones=0;
-    private int numeroRetiros=0;
-    private float tasaAnual;
-    private float comisionMensual=0;
+    protected  float saldo;
+    protected int numeroConsignaciones=0;
+    protected int numeroRetiros=0;
+    protected float tasaAnual;
+    protected float comisionMensual=0;
 
     public Cuenta(float saldo, float tasaAnual) {
         this.saldo = saldo;
